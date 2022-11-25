@@ -1,0 +1,41 @@
+<div class="container w-50 my-5">
+    <div class="loginForm bg-dark">
+        <div class="title text-white">
+            Login Form
+        </div>
+        <p *ngIf="isValidFormSubmitted && loginForm.pristine" class="text-danger">
+            Form submitted successfully.
+        </p>
+        <form [formGroup]="loginForm" (ngSubmit)="login()">
+            <div class="row">
+                <!-- Email -->
+                <div class="col-12 form_wrapper">
+                    <label class="formLabel">Email</label>
+                    <div>
+                    </div>
+                    <input class="w-75" formControlName="email" type="email" placeholder="Example@mail.com">
+                    <div
+                        *ngIf="loginForm.controls['email'].errors && isValidFormSubmitted != null && !isValidFormSubmitted">
+                        <div class="text-danger" *ngIf="loginForm.controls['email'].errors?.['pattern']">
+                            Email not valid.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Password -->
+            <div class="col-12 form_wrapper mt-2">
+                <label class="formLabel">Password</label>
+                <div>
+                    <input class="w-75" formControlName="password" type="password" placeholder="password">
+                </div>
+            </div>
+            <!-- Login Button -->
+            <div class="col-12 formBtn mt-4">
+                <button type="submit"> Login </button>
+            </div>
+        </form>
+    </div>
+    <ng-container *ngIf="preloader">
+        <span class="loader"></span>
+    </ng-container>
+</div>

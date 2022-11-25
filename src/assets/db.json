@@ -1,0 +1,39 @@
+{
+  "posts": [
+    {
+      "id": "2000",
+      "name": "doha tammam",
+      "age": "23",
+      "address": "cairo",
+      "birthDate": "1999-01-14"
+    },
+    {
+      "id": "2002",
+      "name": "Mostafaa",
+      "age": "24",
+      "address": "alex",
+      "birthDate": "1998-11-15"
+    },
+    {
+      "id": "2001",
+      "name": "toka",
+      "age": "25",
+      "address": "cairo",
+      "birthDate": "1997-07-23"
+    },
+    {
+      "id": "2003",
+      "name": "nayera wagdy",
+      "age": "23",
+      "address": "nasr city",
+      "birthDate": "1999-06-13"
+    },
+    {
+      "id": "3000",
+      "name": "Laila",
+      "age": "20",
+      "address": "luxor",
+      "birthDate": "2002-04-05"
+    }
+  ]
+}

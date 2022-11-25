@@ -1,0 +1,24 @@
+@mixin iconStyle($color,$font,$cursor:pointer){
+    color: $color;
+    font-size: $font;
+    cursor: $cursor;
+}
+.trashIcon i{
+    @include iconStyle(red, 18px)
+}
+.tableData{
+    font-size: 18px;
+    font-weight: 400;
+}
+.editIcon i{
+    @include iconStyle(green, 18px)
+}
+.form-label{
+    font-weight: 700;
+    font-size: 18px;
+    color: rgb(65, 65, 65);
+}
+.inputAlert{
+    font-size: 11px;
+    padding-inline-start: 7px;
+}

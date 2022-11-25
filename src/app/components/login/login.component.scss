@@ -1,0 +1,25 @@
+.loginForm {
+    text-align: center;
+    padding: 20px;
+    border-radius: 5px;
+
+    .title {
+        font-size: 20px;
+    }
+
+    .form_wrapper {
+        text-align: start;
+
+        .formLabel {
+            color: white;
+            font-weight: 600;
+            font-size: 18px;
+        }
+    }
+
+    .formBtn button {
+        padding: 0 40px;
+        font-weight: 700;
+        font-size: 18px;
+    }
+}
