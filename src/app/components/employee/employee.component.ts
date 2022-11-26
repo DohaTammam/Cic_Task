@@ -1,7 +1,9 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Employee } from 'src/app/Interface/Employee';
 import { EmployeeService } from 'src/app/Services/employee.service';
+import { UserService } from 'src/app/Services/user.service';
 declare var $ : any;
 
 @Component({
@@ -22,7 +24,7 @@ export class EmployeeComponent implements OnInit {
   updateId:any;
   modalT:boolean = true;
   myModalEl:any = document.getElementById('AddEmpModal');
-  constructor(private formBuilder: FormBuilder, private empService: EmployeeService) { }
+  constructor( public router: Router, private formBuilder: FormBuilder, private empService: EmployeeService, private userService : UserService) { }
 
   ngOnInit(): void {
     this.empForm = this.formBuilder.group({
@@ -34,6 +36,7 @@ export class EmployeeComponent implements OnInit {
     })
     this.getAllEmployees();
   }
+  // Get All Data Employess From Server
   getAllEmployees(){
     this.empService.getEmployee().subscribe((res)=>{
       this.empList.push(res);
@@ -42,12 +45,14 @@ export class EmployeeComponent implements OnInit {
   }
   AddEmployee() {
     if(this.empForm.valid){
+      // fill Empobj with data from Form values
       this.empObj.id = this.empForm.value.id;
       this.empObj.name = this.empForm.value.name;
       this.empObj.age = this.empForm.value.age;
       this.empObj.address = this.empForm.value.address;
       this.empObj.birthDate = this.empForm.value.birthDate;
       
+      // Send Object to server
       this.empService.addEmployee(this.empObj).subscribe((res)=>{
         this.empList.push(res);
         this.employees.push(this.empObj);
@@ -105,6 +110,11 @@ export class EmployeeComponent implements OnInit {
     this.editEmployeeButton.nativeElement.click();
     this.clearForm();
     this.modalT = true;
+  }
+  /* Logut Out Function --> set the Guard To False and go to Main Page */
+  logOut(){
+    this.userService.isLoggedIn = false;
+    this.router.navigate(['']);
   }
   
 }

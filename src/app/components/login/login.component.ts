@@ -65,21 +65,20 @@ export class LoginComponent implements OnInit {
         this.find = true
       }
     })
-    return this.find
+    return this.find;
   }
   login() {
+    this.isValidFormSubmitted = true;
     if (this.loginForm.invalid) {
       return;
     }
     if (this.findUser(this.loginForm.value.email, this.loginForm.value.password)) {
-      this.isValidFormSubmitted = true;
-      this.userService.login(this.loginForm.value).subscribe((res) => {
-        console.log(res), 'res';
-        this.router.navigate(['/employee'])
-      })
-    }
-    else {
-      alert('Please Enter Vaild Email')
+      this.userService.isLoggedIn= true;
+      this.router.navigate(['/employee'])
+      // this.userService.login(this.loginForm.value).subscribe((res) => {
+      //   console.log(res), 'res';
+      //   localStorage.setItem('userToken', res.token);
+      // })
     }
   }
   toHomepage() {

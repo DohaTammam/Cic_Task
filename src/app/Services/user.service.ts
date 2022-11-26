@@ -9,7 +9,8 @@ import { User } from '../Interface/Employee';
 export class UserService {
   userUrl = 'http://localhost:3005/posts'
   userListApi = 'https://fakestoreapi.com/users'
-
+  isLoggedIn:boolean = false;
+  
   constructor(private http : HttpClient) { }
 
 
@@ -22,19 +23,8 @@ export class UserService {
     return this.http.post<any>(this.userUrl, body).pipe(
       take(1),
       map(
-        (result) => { console.log(result); return result }
+        (result) => { console.log(result.token); return result }
       )
     )
   }
-
-  // login(user:object){
-  //   let headers = new HttpHeaders();
-  //   headers = headers.set('Content-Type', 'application/json; charset=utf-8');
-  //   return this.http.post(this.userUrl, user).pipe(
-  //     take(1),
-  //     map(
-  //       (result) => { console.log(result,'User Api'); return result }
-  //     )
-  //   )
-  // }
 }

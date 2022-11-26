@@ -8,13 +8,6 @@
       "birthDate": "1999-01-14"
     },
     {
-      "id": "2002",
-      "name": "Mostafaa",
-      "age": "24",
-      "address": "alex",
-      "birthDate": "1998-11-15"
-    },
-    {
       "id": "2001",
       "name": "toka",
       "age": "25",
@@ -23,7 +16,7 @@
     },
     {
       "id": "2003",
-      "name": "nayera wagdy",
+      "name": "nayera",
       "age": "23",
       "address": "nasr city",
       "birthDate": "1999-06-13"
